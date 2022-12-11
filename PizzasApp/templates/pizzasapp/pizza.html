@@ -1,0 +1,40 @@
+{% extends "PizzasApp/base.html" %}
+
+{% block content %}
+
+<h2><p> {{ pizza }} </p></h2>
+
+<ul>
+    {% for t in toppings %}
+
+    <li> {{ t.topping_name }} </li>
+
+    {% empty %}
+    <li> No entries for this topic have been added. </li>
+    {% endfor %}
+</ul>
+
+<p>
+    <img src="{{ pizza.image.url }}">
+</p>
+
+<p>
+    <a href="{% url 'PizzasApp:new_comment' pizza.id %}">Add new comment</a>
+</p>
+
+<br><br><br>
+<h3><p>Comments:</p></h3>
+
+<ul>
+    {% for c in comments %}
+
+    <li> {{ c.text }} </li>
+
+    {% empty %}
+    <li> No comments are available for this pizza </li>
+    {% endfor %}
+    
+</ul>
+
+
+{% endblock content %}

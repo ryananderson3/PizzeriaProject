@@ -1,0 +1,28 @@
+{% extends "PizzasApp/base.html" %}
+
+{% block content %}
+
+<style>
+    body{
+        background-image: url('https://paradiserestored.com/wp-content/uploads/2018/08/3159-191.jpg');
+        background-size: cover;
+    }
+</style>
+
+<h1><p>Menu</p></h1>
+
+<ul>
+    {% for p in all_pizzas %}
+
+    
+    <a href="{% url 'PizzasApp:pizza' p.id %}"> {{ p }} <br><br></a>
+    
+
+    {% empty %}
+    <li> No topics have been added yet. </li>
+    {% endfor %}
+
+</ul>
+
+
+{% endblock content %}
